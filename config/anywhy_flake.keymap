@@ -149,11 +149,11 @@
 
         colemak_dh {
             bindings = <
-&none  &none           &none             &none        &none           &none          &none        &none            &none        &none              &none     &none
-&none  &kp Q           &kp W             &kp F        &kp P           &kp B          &kp J        &kp L            &kp U        &kp Y              &kp SEMI  &none
-&none  &kp A           &mt LEFT_SHIFT R  &mt LCTRL S  &mt LEFT_ALT T  &kp G          &kp M        &mt RIGHT_ALT N  &mt RCTRL E  &mt RIGHT_SHIFT I  &kp O     &none
-&none  &mt LEFT_GUI Z  &kp X             &kp C        &kp D           &kp V          &kp K        &kp H            &kp COMMA    &kp DOT            &kp FSLH  &none
-       &none           &none             &none        &none           &lt 1 SPACE    &lt 1 SPACE  &none            &none        &none              &none
+&none  &none            &none             &none        &none           &none          &none        &none            &none        &none              &none      &none
+&none  &kp Q            &kp W             &kp F        &kp P           &kp B          &kp J        &kp L            &kp U        &kp Y              &kp SEMI   &none
+&none  &kp A            &mt LEFT_SHIFT R  &mt LCTRL S  &mt LEFT_ALT T  &kp G          &kp M        &mt RIGHT_ALT N  &mt RCTRL E  &mt RIGHT_SHIFT I  &kp O      &none
+&none  &mt LEFT_GUI Z   &kp X             &kp C        &kp D           &kp V          &kp K        &kp H            &kp COMMA    &kp DOT            &kp FSLH   &none
+       &kp LC(LS(TAB))  &kp LC(TAB)       &kp LG(TAB)  &lt 3 TAB       &lt 1 SPACE    &lt 1 SPACE  &kp BACKSPACE    &kp DELETE   &kp RC(C)          &kp RC(V)
             >;
         };
 
@@ -171,9 +171,9 @@
             bindings = <
 &none  &none        &none  &none  &none  &none    &none            &none            &none            &none            &none            &none
 &none  &none        &none  &none  &none  &none    &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_DIVIDE    &kp KP_MULTIPLY  &none
-&none  &none        &none  &none  &none  &none    &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_SUBTRACT  &kp PLUS         &none
+&none  &none        &none  &none  &none  &none    &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_SUBTRACT  &kp KP_PLUS      &none
 &none  &bootloader  &none  &none  &none  &none    &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_COMMA     &kp KP_EQUAL     &none
-       &none        &none  &none  &none  &none    &kp KP_NUMBER_0  &kp PERIOD       &kp KP_ENTER     &none            &none
+       &none        &none  &none  &none  &none    &kp KP_NUMBER_0  &kp BACKSPACE    &kp KP_DOT       &none            &kp KP_ENTER
             >;
         };
 
