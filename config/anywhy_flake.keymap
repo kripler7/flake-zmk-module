@@ -57,13 +57,13 @@
 
         a {
             bindings = <&mt GRAVE ESCAPE>;
-            key-positions = <1 2>;
+            key-positions = <13 14>;
             layers = <1 0 4>;
         };
 
         b {
             bindings = <&kp CLCK>;
-            key-positions = <13 14 15>;
+            key-positions = <25 26 27>;
         };
 
         d {
@@ -73,22 +73,22 @@
 
         e {
             bindings = <&kp ENTER>;
-            key-positions = <20 21>;
+            key-positions = <32 33>;
         };
 
         h {
             bindings = <&sys_reset>;
-            key-positions = <1 14 27>;
+            key-positions = <13 26 39>;
         };
 
         j {
             bindings = <&sys_reset>;
-            key-positions = <10 21 32>;
+            key-positions = <22 33 44>;
         };
 
         Backslash_pipe {
             bindings = <&mt PIPE BACKSLASH>;
-            key-positions = <33 34>;
+            key-positions = <46 45>;
         };
 
         print_screen {
@@ -98,12 +98,12 @@
 
         num_layer {
             bindings = <&to 4>;
-            key-positions = <6 7 8>;
+            key-positions = <18 19 20>;
         };
 
         bt_layer {
-            bindings = <&to 7>;
-            key-positions = <3 4 5>;
+            bindings = <&to 5>;
+            key-positions = <17 16 15>;
         };
 
         default_layer {
@@ -112,7 +112,7 @@
         };
 
         f_layer {
-            bindings = <&to 6>;
+            bindings = <&to 4>;
             key-positions = <29 28 27 26>;
         };
 
@@ -123,7 +123,7 @@
 
         Tilde {
             bindings = <&mt LS(GRAVE) GRAVE>;
-            key-positions = <1 2>;
+            key-positions = <13 14>;
             layers = <3 2>;
         };
     };
