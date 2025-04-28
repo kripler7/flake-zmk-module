@@ -1,176 +1,209 @@
+#include <dt-bindings/zmk/mouse.h>
+#include <input/processors.dtsi>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
+
+/*
+
+   &mmv_input_listener {
+       input-processors = <&zip_xy_scaler 2 1>;
+   };
+
+   &msc_input_listener {
+       input-processors = <&zip_xy_scaler 2 1>;
+   };
+
+ */
+
+#define ZMK_MOUSE_DEFAULT_MOVE_VAL 1200  // 600
+#define ZMK_MOUSE_DEFAULT_SCRL_VAL 20    // 10
+
+&mt {
+    tapping-term-ms = <200>;
+    quick-tap-ms = <175>;
+    flavor = "balanced";
+    hold-trigger-key-positions = <16 17 18 13 12 11 20>;
+    hold-trigger-on-release;
+};
+
+&mmv {
+};
+
+&msc {
+};
+
+&lt {
+};
 
 / {
+    behaviors {
+        mmv {
+            acceleration-exponent = <1>;      // 1
+            time-to-max-speed-ms = <900>;    // 40
+            delay-ms = <0>;                   // 0
+        };
+
+        msc {
+            acceleration-exponent = <1>;      // 0
+            time-to-max-speed-ms = <400>;      // 500
+            delay-ms = <0>;                   //   10
+        };
+    };
+
     combos {
         compatible = "zmk,combos";
 
-        bt_sel_3 {
-            bindings = <&bt3>;
-            key-positions = <42 30>;
-            layers = <2>;
+        a {
+            bindings = <&mt GRAVE ESCAPE>;
+            key-positions = <13 14>;
+            layers = <1 0 4>;
         };
 
-        bt_sel_4 {
-            bindings = <&bt4>;
-            key-positions = <30 18>;
-            layers = <2>;
+        b {
+            bindings = <&kp CLCK>;
+            key-positions = <25 26 27>;
         };
 
-        enter_gaming {
-            bindings = <&sl 3>;
-            key-positions = <26 15 28>;
-            layers = <2>;
+        d {
+            bindings = <&kp DEL>;
+            key-positions = <9 10>;
         };
 
-        leave_gaming {
-            bindings = <&sl 0>;
-            key-positions = <31 20 33>;
-            layers = <4>;
+        e {
+            bindings = <&kp ENTER>;
+            key-positions = <32 33>;
         };
 
-        grave {
-            bindings = <&kp GRAVE>;
-            key-positions = <13 25>;
-            layers = <3>;
+        h {
+            bindings = <&sys_reset>;
+            key-positions = <13 26 39>;
+        };
+
+        j {
+            bindings = <&sys_reset>;
+            key-positions = <22 33 44>;
+        };
+
+        Backslash_pipe {
+            bindings = <&mt PIPE BACKSLASH>;
+            key-positions = <46 45>;
+        };
+
+        print_screen {
+            bindings = <&screenshot>;
+            key-positions = <37 38 39>;
+        };
+
+        num_layer {
+            bindings = <&to 4>;
+            key-positions = <18 19 20>;
+        };
+
+        bt_layer {
+            bindings = <&to 5>;
+            key-positions = <17 16 15>;
+        };
+
+        default_layer {
+            bindings = <&to 0>;
+            key-positions = <30 31 32 33>;
+        };
+
+        f_layer {
+            bindings = <&to 4>;
+            key-positions = <29 28 27 26>;
+        };
+
+        Tilde {
+            bindings = <&mt LS(GRAVE) GRAVE>;
+            key-positions = <13 14>;
+            layers = <3 2>;
+        };
+
+        play-pause {
+            bindings = <&kp C_PLAY_PAUSE>;
+            key-positions = <57 56>;
         };
     };
 
     macros {
-        bt_clr_0: bt_clr_0 {
+        screenshot: screenshot {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 0 &bt BT_CLR>;
-            label = "BT_CLR_0";
-        };
+            bindings =
+                <&macro_press>,
+                <&kp LS(LEFT_GUI)>,
+                <&macro_tap>,
+                <&kp S>,
+                <&macro_release>,
+                <&kp LS(LEFT_GUI)>;
 
-        bt_clr_1: bt_clr_1 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&bt BT_SEL 1 &bt BT_CLR>;
-            label = "BT_CLR_1";
-        };
-
-        bt_clr_2: bt_clr_2 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&bt BT_SEL 2 &bt BT_CLR>;
-            label = "BT_CLR_2";
-        };
-
-        bt_clr_3: bt_clr_3 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&bt BT_SEL 3 &bt BT_CLR>;
-            label = "BT_CLR_3";
-        };
-
-        bt_clr_4: bt_clr_4 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&bt BT_SEL 4 &bt BT_CLR>;
-            label = "BT_CLR_4";
-        };
-    };
-
-    behaviors {
-        bt0: bt0 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "BT0";
-            bindings = <&bt BT_SEL 0>, <&bt_clr_0>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        bt1: bt1 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "BT1";
-            bindings = <&bt BT_SEL 1>, <&bt_clr_1>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        bt2: bt2 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "BT2";
-            bindings = <&bt BT_SEL 2>, <&bt_clr_2>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        bt3: bt3 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "BT3";
-            bindings = <&bt BT_SEL 3>, <&bt_clr_3>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        bt4: bt4 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "BT4";
-            bindings = <&bt BT_SEL 4>, <&bt_clr_4>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            label = "SCREENSHOT";
         };
     };
 
     keymap {
         compatible = "zmk,keymap";
 
-        base {
+        colemak_dh {
             bindings = <
-       &none  &none  &none  &none  &none  &none                &none   &none      &none      &none     &none      &knone
-       &none  &kp Q  &kp W  &kp E  &kp R  &kp T                &kp Y   &kp U      &kp I      &kp O     &kp P      &none
-       &none  &kp A  &kp S  &kp D  &kp F  &kp G                &kp H   &kp J      &kp K      &kp L     &kp SEMI   &none
-       &none  &kp Z  &kp X  &kp C  &kp V  &kp B                &kp N   &kp M      &kp COMMA  &kp DOT   &kp FSLH   &none
-&kp LGUI  &kp LALT  &kp LCTRL  &kp SPACE  &mo 1                &mo 2   &kp LSHFT  &kp LGUI   &kp LALT  &kp LCTRL
+&none  &none            &none             &none        &none           &none          &none        &none            &none        &none              &none      &none
+&none  &kp Q            &kp W             &kp F        &kp P           &kp B          &kp J        &kp L            &kp U        &kp Y              &kp SEMI   &none
+&none  &kp A            &mt LEFT_SHIFT R  &mt LCTRL S  &mt LEFT_ALT T  &kp G          &kp M        &mt RIGHT_ALT N  &mt RCTRL E  &mt RIGHT_SHIFT I  &kp O      &none
+&none  &mt LEFT_GUI Z   &kp X             &kp C        &kp D           &kp V          &kp K        &kp H            &kp COMMA    &kp DOT            &kp FSLH   &none
+       &kp LC(LS(TAB))  &kp LC(TAB)       &kp LG(TAB)  &lt 3 TAB       &lt 1 SPACE    &lt 1 SPACE  &kp BACKSPACE    &kp DELETE   &kp RC(C)          &kp RC(V)
             >;
         };
 
-        num {
+        arrow_numbers {
             bindings = <
-&none  &none     &none          &none      &none      &none       &none      &none   &none   &none   &none      &none
-&none  &kp ESC   &kp BACKSPACE  &kp TAB    &kp ENTER  &kp DEL     &kp GRAVE  &kp N7  &kp N8  &kp N9  &kp MINUS  &none
-&none  &kp LGUI  &kp LALT       &kp LCTRL  &kp LSHFT  &kp LBKT    &kp EQUAL  &kp N4  &kp N5  &kp N6  &kp N0     &none
-&none  &kp LEFT  &kp DOWN       &kp UP     &kp RIGHT  &kp RBKT    &kp SQT    &kp N1  &kp N2  &kp N3  &kp BSLH   &none
-       &trans    &trans         &trans     &trans     &none       &none      &trans  &trans  &trans  &trans
+&none  &none                        &none                          &none              &none                &none                   &none               &none                   &none                  &none                          &none                           &none
+&none  &mt EXCLAMATION NUMBER_1     &mt AT_SIGN NUMBER_2           &mt HASH NUMBER_3  &mt DOLLAR NUMBER_4  &mt PERCENT NUMBER_5    &mt CARET NUMBER_6  &mt AMPERSAND NUMBER_7  &mt ASTERISK NUMBER_8  &mt LEFT_PARENTHESIS NUMBER_9  &mt RIGHT_PARENTHESIS NUMBER_0  &none
+&none  &mt UNDERSCORE MINUS         &mt PLUS EQUAL                 &none              &none                &none                   &none               &kp PAGE_UP             &kp UP_ARROW           &kp PAGE_DOWN                  &mt DOUBLE_QUOTES SQT           &none
+&none  &mt LEFT_BRACE LEFT_BRACKET  &mt RIGHT_BRACE RIGHT_BRACKET  &none              &none                &none                   &kp HOME            &kp LEFT_ARROW          &kp DOWN               &kp RIGHT_ARROW                &kp END                         &none
+       &none                        &none                          &none              &none                &none                   &none               &none                   &none                  &none                          &none
             >;
         };
 
-        fn {
+        number_layer {
             bindings = <
-&none  &none    &none   &none   &none   &none             &none  &none       &none         &none         &none         &none
-&none  &kp F12  &kp F7  &kp F8  &kp F9  &soft_off         &bt2   &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_BRI_UP  &none
-&none  &kp F10  &kp F4  &kp F5  &kp F6  &kp CAPS          &bt1   &kp RSHFT   &kp RCTRL     &kp RALT      &kp RGUI      &none
-&none  &kp F11  &kp F1  &kp F2  &kp F3  &studio_unlock    &bt0   &kp C_PP    &kp C_PREV    &kp C_NEXT    &kp C_BRI_DN  &none
-       &trans   &trans  &trans  &trans  &none             &none  &trans      &trans        &trans        &trans
+&none  &none        &none  &none  &none  &none    &none            &none            &none            &none            &none            &none
+&none  &none        &none  &none  &none  &none    &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_DIVIDE    &kp KP_MULTIPLY  &none
+&none  &none        &none  &none  &none  &none    &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_SUBTRACT  &kp KP_PLUS      &none
+&none  &bootloader  &none  &none  &none  &none    &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_COMMA     &kp KP_EQUAL     &none
+       &none        &none  &none  &none  &none    &kp KP_NUMBER_0  &kp BACKSPACE    &kp DEL          &kp KP_DOT       &kp KP_ENTER
             >;
         };
 
-        gaming {
+        mouse_layer {
             bindings = <
-&kp ESC    &kp N1     &kp N2  &kp N3  &kp N4     &kp N5    &kp N6  &kp N7     &kp N8     &kp N9    &kp N0     &kp MINUS
-&kp CAPS   &kp TAB    &kp Q   &kp W   &kp E      &kp R     &kp Y   &kp U      &kp I      &kp O     &kp P      &kp BSPC
-&kp ENTER  &kp LSHFT  &kp A   &kp S   &kp D      &kp F     &kp H   &kp J      &kp K      &kp L     &kp SEMI   &kp APOS
-&kp LBKT   &kp LCTRL  &kp Z   &kp X   &kp C      &kp V     &kp N   &kp M      &kp COMMA  &kp DOT   &kp FSLH   &kp RBKT
-           &kp T      &kp G   &kp B   &kp SPACE  &mo 4     &mo 2   &kp LSHFT  &kp LGUI   &kp LALT  &kp LCTRL
+&none  &none  &none          &none             &none             &none             &none           &none            &none           &none            &none           &none
+&none  &none  &kp C_AC_BACK  &kp C_AC_REFRESH  &kp C_AC_FORWARD  &none             &none           &none            &mmv MOVE_UP    &none            &none           &none
+&none  &none  &mkp LCLK      &mkp MCLK         &mkp RCLK         &msc SCRL_UP      &none           &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_UP    &none
+&none  &none  &none          &msc SCRL_LEFT    &msc SCRL_RIGHT   &msc SCRL_DOWN    &msc SCRL_LEFT  &msc SCRL_RIGHT  &none           &none            &msc SCRL_DOWN  &none
+       &none  &none          &none             &none             &none             &kp C_VOL_DN    &kp C_VOL_UP     &kp K_MUTE      &kp C_PREV       &kp C_NEXT
             >;
         };
 
-        gaming_num {
+        f_layer {
             bindings = <
-&trans  &trans   &trans    &trans    &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp ESC  &kp BSPC  &kp CAPS  &kp ENTER  &kp DEL    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp N1   &kp N2    &kp N3    &kp N4     &kp N5     &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp N6   &kp N7    &kp N8    &kp N9     &kp N0     &trans  &trans  &trans  &trans  &trans  &trans
-        &trans   &trans    &trans    &trans     &trans     &trans  &trans  &trans  &trans  &trans
+&none  &none   &none   &none   &none   &none     &none    &none    &none   &none   &none    &none
+&none  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &kp F6   &kp F7   &kp F8  &kp F9  &kp F10  &none
+&none  &none   &none   &none   &none   &none     &kp F11  &kp F12  &none   &none   &none    &none
+&none  &none   &none   &none   &none   &none     &none    &none    &none   &none   &none    &none
+       &none   &none   &none   &none   &none     &none    &none    &none   &none   &none
+            >;
+        };
+
+        bt_layer {
+            bindings = <
+&none  &none           &none         &none         &none         &none           &none  &none  &none  &none  &none        &none
+&none  &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &none  &none  &none  &none  &none        &none
+&none  &none           &none         &none         &none         &none           &none  &none  &none  &none  &none        &none
+&none  &bt BT_CLR_ALL  &bt BT_CLR    &none         &bt BT_PRV    &bt BT_NXT      &none  &none  &none  &none  &bootloader  &none
+       &none           &none         &none         &none         &none           &none  &none  &none  &none  &none
             >;
         };
     };
