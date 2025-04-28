@@ -168,11 +168,12 @@
 
         number_layer {
             bindings = <
-&none  &none    &none   &none   &none   &none             &none  &none       &none         &none         &none         &none
-&none  &kp F12  &kp F7  &kp F8  &kp F9  &soft_off         &bt2   &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_BRI_UP  &none
-&none  &kp F10  &kp F4  &kp F5  &kp F6  &kp CAPS          &bt1   &kp RSHFT   &kp RCTRL     &kp RALT      &kp RGUI      &none
-&none  &kp F11  &kp F1  &kp F2  &kp F3  &studio_unlock    &bt0   &kp C_PP    &kp C_PREV    &kp C_NEXT    &kp C_BRI_DN  &none
-       &none    &none   &none   &none   &none             &none  &none       &none         &none         &none
+&none  &none        &none  &none  &none  &none              &none            &none            &none            &none            &none            &none
+&none  &none        &none  &none  &none  &none              &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_DIVIDE    &kp KP_MULTIPLY  &none
+&none  &none        &none  &none  &none  &none              &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_SUBTRACT  &kp PLUS         &none
+&none  &bootloader  &none  &none  &none  &none              &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_COMMA     &kp KP_EQUAL     &none
+       &none        &none  &none  &none  &none              &kp KP_NUMBER_0  &kp PERIOD       &kp KP_ENTER     &none            &none
+
             >;
         };
 
