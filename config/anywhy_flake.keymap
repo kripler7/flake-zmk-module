@@ -145,7 +145,7 @@
     keymap {
         compatible = "zmk,keymap";
 
-        base {
+        colemak_dh {
             bindings = <
 &none  &none     &none     &none      &none      &none    &none  &none      &none      &none     &none      &none
 &none  &kp Q     &kp W     &kp E      &kp R      &kp T    &kp Y  &kp U      &kp I      &kp O     &kp P      &none
@@ -155,7 +155,7 @@
             >;
         };
 
-        num {
+        arrow_numbers {
             bindings = <
 &none  &none     &none          &none      &none      &none       &none      &none   &none   &none   &none      &none
 &none  &kp ESC   &kp BACKSPACE  &kp TAB    &kp ENTER  &kp DEL     &kp GRAVE  &kp N7  &kp N8  &kp N9  &kp MINUS  &none
@@ -165,7 +165,7 @@
             >;
         };
 
-        fn {
+        number_layer {
             bindings = <
 &none  &none    &none   &none   &none   &none             &none  &none       &none         &none         &none         &none
 &none  &kp F12  &kp F7  &kp F8  &kp F9  &soft_off         &bt2   &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_BRI_UP  &none
@@ -175,7 +175,7 @@
             >;
         };
 
-        gaming {
+        mouse_layer {
             bindings = <
 &kp ESC    &kp N1     &kp N2  &kp N3  &kp N4     &kp N5    &kp N6  &kp N7     &kp N8     &kp N9    &kp N0     &kp MINUS
 &kp CAPS   &kp TAB    &kp Q   &kp W   &kp E      &kp R     &kp Y   &kp U      &kp I      &kp O     &kp P      &kp BSPC
@@ -185,7 +185,7 @@
             >;
         };
 
-        gaming_num {
+        f_layer {
             bindings = <
 &trans  &trans   &trans    &trans    &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &kp ESC  &kp BSPC  &kp CAPS  &kp ENTER  &kp DEL    &trans  &trans  &trans  &trans  &trans  &trans
