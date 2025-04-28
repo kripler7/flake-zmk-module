@@ -148,11 +148,11 @@
 
         colemak_dh {
             bindings = <
-&none  &none     &none               &none              &none            &none    &none  &none      &none      &none     &none      &none
-&none  &kp Q     &kp W               &kp F              &kp P            &kp B    &kp J  &kp L      &kp U      &kp Y     &kp SEMI   &kp LSHFT
-&none  &kp A     &mt LEFT_SHIFT R    &mt LCTRL S        &mt LEFT_ALT T   &kp G    &kp M  &kp N      &kp E      &kp I     &kp O      &kp LSHFT
-&none  &kp Z     &kp X               &kp C              &kp D            &kp V    &kp K  &kp H      &kp COMMA  &kp DOT   &kp FSLH   &kp LSHFT
-       &kp LGUI  &kp LALT            &kp LCTRL          &kp SPACE        &mo 1    &mo 2  &kp LSHFT  &kp LGUI   &kp LALT  &kp LCTRL
+&none  &none           &none             &none        &none           &none          &none        &none            &none        &none              &none     &none
+&none  &kp Q           &kp W             &kp F        &kp P           &kp B          &kp J        &kp L            &kp U        &kp Y              &kp SEMI  &none
+&none  &kp A           &mt LEFT_SHIFT R  &mt LCTRL S  &mt LEFT_ALT T  &kp G          &kp M        &mt RIGHT_ALT N  &mt RCTRL E  &mt RIGHT_SHIFT I  &kp O     &none
+&none  &mt LEFT_GUI Z  &kp X             &kp C        &kp D           &kp V          &kp K        &kp H            &kp COMMA    &kp DOT            &kp FSLH  &none
+       &none           &none             &none        &none           &lt 1 SPACE    &lt 1 SPACE  &none            &none        &none              &none
             >;
         };
 
