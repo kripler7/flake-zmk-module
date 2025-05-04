@@ -57,7 +57,7 @@
 
         a {
             bindings = <&mt GRAVE ESCAPE>;
-            key-positions = <13 14>;
+            key-positions = <<0 1>;
             layers = <1 0 4>;
         };
 
@@ -68,12 +68,12 @@
 
         d {
             bindings = <&kp DEL>;
-            key-positions = <9 10>;
+            key-positions = <8 9>;
         };
 
         e {
             bindings = <&kp ENTER>;
-            key-positions = <32 33>;
+            key-positions = <18 17>;
         };
 
         h {
