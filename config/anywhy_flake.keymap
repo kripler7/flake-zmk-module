@@ -127,6 +127,11 @@
             key-positions = <57 56 39 38>;
             layers = <3>;
         };
+
+        ubuntu_print {
+            bindings = <&kp PRINTSCREEN>;
+            key-positions = <20 21 23>;
+        };
     };
 
     macros {
