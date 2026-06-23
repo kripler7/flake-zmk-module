@@ -158,7 +158,7 @@
   &kp Q            &kp W             &kp F          &kp P           &kp B          &kp J        &kp L            &kp U        &kp Y              &mt COLON SEMI
   &kp A            &mt LEFT_SHIFT R  &mt LCTRL S    &mt LEFT_ALT T  &kp G          &kp M        &mt RIGHT_ALT N  &mt RCTRL E  &mt RIGHT_SHIFT I  &kp O
   &mt LEFT_GUI Z   &kp X             &kp C          &kp D           &kp V          &kp K        &kp H            &kp COMMA    &kp DOT            &mt QUESTION SLASH
-  &kp LC(LS(TAB))  &kp LC(TAB)       &lt 2 LG(TAB)  &lt 3 TAB       &lt 1 SPACE    &lt 1 SPACE  &kp BACKSPACE    &kp DELETE   &kp RC(C)          &kp RC(V)
+  &kp LC(LS(TAB))  &kp LC(TAB)       &lt 2 LG(TAB)  &lt 3 TAB       &lt 1 SPACE    &lt 1 SPACE  &kp BACKSPACE    &kp DELETE   &kp RG(C)          &kp RG(V)
             >;
         };
 
